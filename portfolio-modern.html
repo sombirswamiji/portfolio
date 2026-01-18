@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sombir Swami Swami - NPD Engineer</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -36,149 +36,164 @@
         
         .logo {
             font-size: 24px;
-            font-weight: bold;
-            color: #00ff88;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00f260, #0575e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
             list-style: none;
+            gap: 40px;
         }
         
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
+            transition: 0.3s;
+            position: relative;
         }
         
-        .nav-links a:hover {
-            color: #00ff88;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(45deg, #00f260, #0575e6);
+            transition: 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 100px 50px 50px;
-            gap: 50px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,242,96,0.1), transparent);
+            top: -250px;
+            right: -250px;
+            animation: float 20s infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(5,117,230,0.1), transparent);
+            bottom: -200px;
+            left: -200px;
+            animation: float 15s infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, 50px);
+            }
         }
         
         .hero-content {
-            flex: 1;
-            max-width: 600px;
+            text-align: center;
+            z-index: 1;
         }
         
         .hero-content h1 {
-            font-size: 48px;
+            font-size: 72px;
             margin-bottom: 20px;
-            line-height: 1.2;
+            background: linear-gradient(45deg, #00f260, #0575e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero-content h1 span {
-            color: #00ff88;
+            display: block;
+            font-size: 36px;
+            margin-top: 10px;
+            color: #aaa;
         }
         
         .hero-content p {
-            font-size: 18px;
+            font-size: 20px;
             color: #aaa;
             margin-bottom: 30px;
         }
         
         .cta-button {
-            display: inline-block;
             padding: 15px 40px;
-            background: #00ff88;
-            color: #0a0a0a;
+            background: linear-gradient(45deg, #00f260, #0575e6);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .profile-circle {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            border: 5px solid #00ff88;
-            overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .profile-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,242,96,0.3);
         }
         
         section {
-            padding: 80px 50px;
-        }
-        
-        h2 {
-            font-size: 40px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        h2 span {
-            color: #00ff88;
-        }
-        
-        .skills-grid, .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            padding: 100px 50px;
             max-width: 1200px;
             margin: 0 auto;
         }
         
-        .skill-card, .exp-card {
-            background: #151515;
+        section h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(45deg, #00f260, #0575e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
         }
         
-        .skill-card:hover, .exp-card:hover {
+        .skill-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
+            border-color: #00f260;
         }
         
-        .skill-card h3, .exp-card h3 {
-            color: #00ff88;
+        .skill-card h3 {
+            color: #00f260;
             margin-bottom: 15px;
-        }
-        
-        .exp-card {
-            text-align: left;
-        }
-        
-        .exp-card .company {
-            color: #00ff88;
-            font-size: 14px;
-            margin-bottom: 10px;
         }
         
         footer {
@@ -198,16 +213,31 @@
                 font-size: 36px;
             }
             
-            .profile-circle {
-                width: 300px;
-                height: 300px;
-            }
-            
             nav {
                 flex-direction: column;
                 gap: 20px;
             }
         }
+        
+        .profile-circle {
+            width: 300px;
+            height: 300px;
+        }
+        
+        nav {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 36px;
+        }
+        
+        .profile-circle {
+            width: 300px;
+            height: 300px;
+        }
+        
     </style>
 </head>
 <body>
@@ -225,89 +255,11 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1><span>NPD &</span> APQP<br>Engineer</h1>
-            <p>Building robust engineering solutions with expertise in<br>New Product Development and Quality Management</p>
+            <p>Building robust engineering solutions with expertise in<>New Product Development and Quality Management</p>
             <p>Specializing in manufacturing excellence and APQP methodologies for the automotive industry. 6+ years of experience in creating quality-first products.</p>
             <a href="#contact" class="cta-button">Let's Connect</a>
-                            <a href="Sombir Swami_Swami_Resume-2.pdf" download class="cta-button" style="background: transparent; border: 2px solid #00ff88; margin-left: 20px;">Download Resume</a>
+                <a href="Sombir_Swami_Swami_Resume-2.pdf" download class="cta-button" style="background: transparent; border: 2px solid #00ff88; margin-left: 20px;">Download Resume</a>
         </div>
         <div class="hero-image">
             <div class="profile-circle">
-                <img src="hombir-photo.jpg400" alt="Sombir Swami Swami" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23151515%22 width=%22400%22 height=%22400%22/%3E%3Ctext fill=%22%2300ff88%22 font-family=%22Arial%22 font-size=%2260%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3ESS%3C/text%3E%3C/svg%
-            </div>
-        </div>
-    </section>
-
-    <section id="about" style="background: #151515;">
-        <h2>About <span>Me</span></h2>
-        <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 18px; color: #aaa;">
-            Mechanical Engineer with 6+ years of experience in New Product Development, APQP, PPAP, and FMEA within the automotive sector. Expertise in leading cross-functional teams, optimizing manufacturing processes, and building strong quality systems aligned with IATF 16949 requirements.
-        </p>
-    </section>
-
-    <section id="experience">
-        <h2>Professional <span>Experience</span></h2>
-        <div class="experience-grid">
-            <div class="exp-card">
-                <h3>Senior Engineer, NPD</h3>
-                <div class="company">India Nippon Electricals Pvt. Ltd. | May 2025 - Present</div>
-                <p>Led APQP activities for new product development projects. Prepared comprehensive PPAP documentation and managed supplier quality ensuring IATF 16949 compliance.</p>
-            </div>
-            <div class="exp-card">
-                <h3>Senior Engineer, NPD</h3>
-                <div class="company">Satyam Auto Components | Sept 2023 - May 2025</div>
-                <p>Led development of APQP documents and actively contributed to Cross-Functional Teams. Created detailed PFDs and control plans for new models.</p>
-            </div>
-            <div class="exp-card">
-                <h3>Engineer, NPD</h3>
-                <div class="company">AUM Dacro Coatings | May 2020 - Sept 2023</div>
-                <p>Assisted in department functions and contributed to process improvement initiatives. Completed assigned training modules within specified timelines.</p>
-            </div>
-            <div class="exp-card">
-                <h3>Graduate Engineer Trainee</h3>
-                <div class="company">Hema Engineering Industries | Feb 2019 - May 2020</div>
-                <p>Developed designs for tools and gauges. Created precise gauge and fixture designs for sheet metal components.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" style="background: #151515;">
-        <h2>Core <span>Competencies</span></h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>NPD & APQP</h3>
-                <p>APQP Process<br>PPAP Documentation<br>Product Launch<br>Design Validation</p>
-            </div>
-            <div class="skill-card">
-                <h3>Quality Systems</h3>
-                <p>IATF 16949<br>ISO 9001<br>FMEA<br>Control Plans</p>
-            </div>
-            <div class="skill-card">
-                <h3>Manufacturing</h3>
-                <p>Process Optimization<br>Supplier Quality<br>7 QC Tools<br>5S & Kaizen</p>
-            </div>
-            <div class="skill-card">
-                <h3>Engineering Tools</h3>
-                <p>CAD/CAM<br>GD&T<br>SolidWorks<br>Technical Drawing</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Get In <span>Touch</span></h2>
-        <p style="text-align: center; font-size: 18px; color: #aaa; margin-bottom: 30px;">
-            📍 Dharuhera, Haryana, India<br>
-            Open to opportunities in NPD, APQP, Quality Engineering, and Manufacturing Excellence roles
-        </p>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="mailto:Sombir Swami.swami@example.com" class="cta-button">Email Me</a>
-            <a href="https://linkedin.com" class="cta-button" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Sombir Swamiswamiji" class="cta-button" target="_blank">GitHub</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 Sombir Swami Swami | NPD & APQP Engineer</p>
-        <p>Dharuhera, Haryana | Quality • Innovation • Excellence</p>
-    </footer>
-</body>
-</html>
+                <img src="My photo.JPG" alt="Sombir Swami Swami" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%2315151235
